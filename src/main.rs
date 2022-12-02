@@ -9,5 +9,5 @@ fn main() {
     let width = message.chars().count();
 
     let mut writer = BufWriter::new(stdout.lock());
-    say(message.as_bytes(), width, &mut writer).unwrap();
+    say(message.as_str(), width, &mut writer).unwrap();
 }
