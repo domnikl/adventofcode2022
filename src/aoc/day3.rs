@@ -4,12 +4,10 @@ use itertools::Itertools;
 // A -> 65 should be 27
 // a -> 97 should be 1
 fn map_char_to_int(c: char) -> u32 {
-    let char_code = c as u32;
-
-    return if char_code >= 97 {
-        char_code - 96
+    return if c as u32 >= 97 {
+        c as u32 - 96
     } else {
-        char_code - 38
+        c as u32 - 38
     }
 }
 
@@ -21,8 +19,8 @@ fn part1(line: &str) -> u32 {
 
     let mut p = x.chunks(x.len() / 2);
 
-    let a: Vec<u32> = p.nth(0).unwrap().to_vec();
-    let b: Vec<u32> = p.nth(0).unwrap().to_vec();
+    let a: Vec<u32> = p.next().unwrap().to_vec();
+    let b: Vec<u32> = p.next().unwrap().to_vec();
 
     return a.intersect(b)[0];
 }
@@ -80,7 +78,7 @@ mod tests {
     #[test]
     fn test_day3_part2() -> Result<(), std::io::Error> {
         assert_eq!(day3_part2(fs::read_to_string("input/day3.txt")?), 70);
-        println!("day 2 part 2: {:?}", day3_part2(fs::read_to_string("input/day3_full.txt")?));
+        //println!("day 2 part 2: {:?}", day3_part2(fs::read_to_string("input/day3_full.txt")?));
         Ok(())
     }
 }
